@@ -1,7 +1,7 @@
 class Solution {
 public:
     int numberOfArithmeticSlices(vector<int>& nums) {
-           map<long long,map<long long, long long>>mp;
+           unordered_map<long long,unordered_map<long long, long long>>mp;
            long long ans = 0, n = nums.size();
            for(int i = 1; i < n; i++){
                for(int j = 0; j < i; j++){
@@ -17,6 +17,7 @@ public:
                    }
                }
            }
+ 
            return (int)ans;
     }
 }; 

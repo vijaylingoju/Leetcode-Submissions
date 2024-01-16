@@ -1,14 +1,14 @@
 class RandomizedSet {
 public:
-    vector<int>v;
-    unordered_map<int,int>mpp;
+
+    unordered_set<int>mpp;
     RandomizedSet() {
     }
     
     bool insert(int val) {
         if(mpp.find(val)==mpp.end()){
-            mpp[val]+=1;
-            v.push_back(val);
+            mpp.insert(val);
+
             return 1;
         }
         return 0;
@@ -18,16 +18,13 @@ public:
     bool remove(int val) {
        if(mpp.find(val)!=mpp.end()){
            mpp.erase(val);
-           auto it = find(v.begin(),v.end(),val);
-        //    vector<int>::tp = v.begin();
-           if(it!=v.end())v.erase(it);
            return 1;
        }
        return 0;
     }
     
     int getRandom() {
-        return v[rand()%v.size()];
+        return *next(mpp.begin(),rand()%mpp.size());
     }
 };
 

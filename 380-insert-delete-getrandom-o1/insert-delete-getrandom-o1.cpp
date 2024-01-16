@@ -1,13 +1,13 @@
 class RandomizedSet {
 public:
 
-    unordered_set<int>mpp;
+    unordered_set<int>s;
     RandomizedSet() {
     }
     
     bool insert(int val) {
-        if(mpp.find(val)==mpp.end()){
-            mpp.insert(val);
+        if(s.find(val)==s.end()){
+            s.insert(val);
 
             return 1;
         }
@@ -16,15 +16,15 @@ public:
     }
     
     bool remove(int val) {
-       if(mpp.find(val)!=mpp.end()){
-           mpp.erase(val);
+       if(s.find(val)!=s.end()){
+           s.erase(val);
            return 1;
        }
        return 0;
     }
     
     int getRandom() {
-        return *next(mpp.begin(),rand()%mpp.size());
+        return *next(s.begin(),rand()%s.size());
     }
 };
 

@@ -12,12 +12,14 @@
 class Solution {
 public:
     int ans = 0;
-
+    int verify(int check){
+         return (!check or !(check&(check - 1)));
+    }
     void fun(TreeNode *root, int check){
         if(!root)return;
         check^=(1<<root->val);
         if(!root->left and !root->right){
-            ans+= (!check or !(check&(check - 1))) ;
+            ans+= verify(check);
             return;
         }
         

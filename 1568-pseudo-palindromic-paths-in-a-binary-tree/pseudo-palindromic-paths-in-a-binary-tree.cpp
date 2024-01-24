@@ -17,7 +17,7 @@ public:
         if(!root)return;
         check^=(1<<root->val);
         if(!root->left and !root->right){
-            if(!check or !(check&(check - 1)))ans+=1;
+            ans+= (!check or !(check&(check - 1))) ;
             return;
         }
         

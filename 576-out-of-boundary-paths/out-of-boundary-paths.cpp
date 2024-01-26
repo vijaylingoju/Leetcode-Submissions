@@ -8,17 +8,17 @@ public:
         
         if(maxMove==0) return 0;
         if(dp[maxMove][startRow][startColumn]!=-1)return dp[maxMove][startRow][startColumn];
+        ll x = 0;
+        x+= fun(m,n,maxMove-1,startRow-1,startColumn,dp)%mod;
+        x%=mod;
+        x+= fun(m,n,maxMove-1,startRow,startColumn+1,dp)%mod;
+        x%=mod;
+        x+= fun(m,n,maxMove-1,startRow+1,startColumn,dp)%mod;
+        x%=mod;
+        x+= fun(m,n,maxMove-1,startRow,startColumn-1,dp)%mod;
+        x%=mod;
 
-        ll t = fun(m,n,maxMove-1,startRow-1,startColumn,dp)%mod;
-        t%=mod;
-        ll r = fun(m,n,maxMove-1,startRow,startColumn+1,dp)%mod;
-        r%=mod;
-        ll d = fun(m,n,maxMove-1,startRow+1,startColumn,dp)%mod;
-        d%=mod;
-        ll l = fun(m,n,maxMove-1,startRow,startColumn-1,dp)%mod;
-        l%=mod;
-
-        return dp[maxMove][startRow][startColumn]=(t+r+d+l)%mod;
+        return dp[maxMove][startRow][startColumn]=x%mod;
 
     }
     int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {

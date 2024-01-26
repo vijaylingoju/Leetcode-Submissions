@@ -22,7 +22,7 @@ public:
 
     }
     int findPaths(int m, int n, int maxMove, int startRow, int startColumn) {
-        vector<vector<vector<int>>> dp(maxMove + 1, vector<vector<int>>(m+1, vector<int>(n+1, -1)));
+        vector<vector<vector<int>>> dp(maxMove+1, vector<vector<int>>(m, vector<int>(n, -1)));
         return fun(m,n,maxMove,startRow,startColumn,dp)%mod;
     }
 };

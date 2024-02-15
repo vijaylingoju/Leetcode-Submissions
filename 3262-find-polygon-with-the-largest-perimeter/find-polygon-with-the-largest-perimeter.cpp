@@ -3,7 +3,8 @@ public:
     long long largestPerimeter(vector<int>& nums) {
         // 1 1 2 3 5  12 50 i
         // 1 2 4 7 12 24 74 j 
-
+        ios_base::sync_with_stdio(false); 
+        cin.tie(NULL);
         // 5  5  5
         // 5 10 15
         long long n = nums.size();

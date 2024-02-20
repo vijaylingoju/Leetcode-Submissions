@@ -3,8 +3,8 @@ public:
     int missingNumber(vector<int>& nums) {
         ios_base::sync_with_stdio(false); 
         cin.tie(NULL);
-        int x = 0, n = nums.size();
-        for(int i = 0; i < n; i++)x+=nums[i];
+        int n = nums.size();
+        int x=accumulate(nums.begin(),nums.end(),0);
         return (n*(n+1)/2 - x);
     }
 };

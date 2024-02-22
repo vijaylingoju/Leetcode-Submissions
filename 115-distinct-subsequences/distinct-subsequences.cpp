@@ -1,20 +1,25 @@
 class Solution {
 public:
-
-    int numDistinct(string s, string t) {
-        int m = s.size();
-        int n = t.size();
-        vector<double>dp(n+1,0);
-
-        dp[0]=1;
-
-        for(int i = 1; i <= m; i++){
-            for(int j = n; j >= 1; j--){
-                if(s[i-1]==t[j-1]){
-                    dp[j]=dp[j-1] + dp[j];
-                }
+    int mod = 1e9+7;
+    int fun(string s, string t, int cur_s, int i, int n,vector<vector<int>>&dp){
+        if(cur_s>=t.size()) {
+            return 1;
+        }
+        if(i>=n)return 0;
+        int res = 0;
+        if(dp[i][cur_s]!=-1)return dp[i][cur_s];
+        if(cur_s < t.size()){
+             if(t[cur_s]==s[i]){
+                res = res + fun(s,t,cur_s+1,i+1,n,dp);
             }
         }
-        return (int)dp[n];
+        res = res + fun(s,t,cur_s,i+1,n,dp);
+       
+        return dp[i][cur_s]=res % mod;
+    }
+    int numDistinct(string s, string t){
+        vector<vector<int>>dp(s.size()+1,vector<int>(t.size()+1,-1));
+        
+        return (fun(s,t,0,0,s.size(),dp)) % mod;
     }
 };

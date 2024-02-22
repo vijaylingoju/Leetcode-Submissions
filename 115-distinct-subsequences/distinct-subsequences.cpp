@@ -2,6 +2,8 @@ class Solution {
 public:
     int mod = 1e9+7;
     int fun(string s, string t, int cur_s, int i, int n,vector<vector<int>>&dp){
+        ios_base::sync_with_stdio(false); 
+        cin.tie(NULL);
         if(cur_s>=t.size()) {
             return 1;
         }

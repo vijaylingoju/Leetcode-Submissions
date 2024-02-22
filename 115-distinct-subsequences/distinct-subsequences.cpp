@@ -10,11 +10,7 @@ public:
         if(i>=n)return 0;
         int res = 0;
         if(dp[i][cur_s]!=-1)return dp[i][cur_s];
-        if(cur_s < t.size()){
-             if(t[cur_s]==s[i]){
-                res = res + fun(s,t,cur_s+1,i+1,n,dp);
-            }
-        }
+        if(t[cur_s]==s[i])res = res + fun(s,t,cur_s+1,i+1,n,dp);
         res = res + fun(s,t,cur_s,i+1,n,dp);
        
         return dp[i][cur_s]=res % mod;

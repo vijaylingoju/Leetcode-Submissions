@@ -20,6 +20,8 @@ public:
         return dp[i][cur_s]=res % mod;
     }
     int numDistinct(string s, string t){
+        ios_base::sync_with_stdio(false); 
+        cin.tie(NULL);
         vector<vector<int>>dp(s.size()+1,vector<int>(t.size()+1,-1));
         
         return (fun(s,t,0,0,s.size(),dp)) % mod;

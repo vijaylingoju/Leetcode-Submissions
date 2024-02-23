@@ -1,24 +1,17 @@
 class Solution {
 public:
-    int dp[101][101]; // Assuming n <= 100
+    int dp[101][101];
     
-    int fun(int i, int dst, int k, unordered_map<int,vector<pair<int,int>>>& adj, vector<int>& vis) {
-        //base cases
+    int fun(int i, int dst, int k, unordered_map<int,vector<pair<int,int>>>& adj) {
         if (k < 0) return 1e9;
         if ( i == dst) return 0;
-        
         if (dp[i][k] != -1) return dp[i][k]; 
-        
-        //vis[i] = 1;
         int mi = 1e9;
         for (auto pr : adj[i]) {
-            if (vis[pr.first] == 0) {
-                int cost = pr.second + fun(pr.first, dst, k - 1, adj, vis);
-                if(cost==1e9)continue;
+                int cost = pr.second + fun(pr.first, dst, k - 1, adj);
+                // if(cost==1e9)continue;
                 mi = min(mi, cost);
-            }
         }
-        //vis[i] = 0;
         return dp[i][k] = mi; 
     }
     
@@ -28,10 +21,7 @@ public:
         for (auto it : flights) {
             adj[it[0]].push_back({it[1], it[2]});
         }
-    
-        
-        vector<int> vis(n, 0);
-        int check = fun(src, dst, k + 1, adj, vis);
+        int check = fun(src, dst, k + 1, adj);
         return check == 1e9 ? -1 : check;
     }
 };

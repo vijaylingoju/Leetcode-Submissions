@@ -20,7 +20,7 @@ public:
         return 1+max(l,r);
     }
     int diameterOfBinaryTree(TreeNode* root) {
-        int k = fun(root);
+        fun(root);
         return dia;
         
     }

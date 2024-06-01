@@ -1,6 +1,8 @@
 class Solution {
 public:
     bool fun(int ps, int ns, string &s, string &p, vector<vector<int>>&dp){
+        ios_base::sync_with_stdio(false); 
+        cin.tie(NULL);
         if(ps<0 and ns<0)return true;
         if(ps<0 and ns>=0)return false;
         if(ps>=0 and ns<0){

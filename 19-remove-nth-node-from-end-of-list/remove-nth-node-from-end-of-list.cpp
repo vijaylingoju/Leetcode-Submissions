@@ -23,9 +23,9 @@ public:
             a=a->next;
             b=b->next;
         }
-         ListNode* temp = a->next;
+        ListNode* temp = a->next;
         a->next = a->next->next;
-        delete temp;
+        // delete temp;
         return head;
     }
 };

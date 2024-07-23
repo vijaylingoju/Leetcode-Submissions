@@ -1,8 +1,5 @@
 class Solution {
 public:
-    static bool cmp(const vector<int>& a,const vector<int>& b){
-        return a[1]<b[1];
-    }
     int findNextIndex(int curr, vector<vector<int>>&rides,int n){
         int left = 0, right = n - 1, ans = n;
         while(left <= right){

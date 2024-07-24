@@ -1,6 +1,7 @@
 class Solution {
 public:
-    int fun(int i, vector<int>&nums, int n, int k, vector<vector<int>>&dp){ios_base::sync_with_stdio(false); 
+    int fun(int i, vector<int>&nums, int n, int k, vector<vector<int>>&dp){
+        ios_base::sync_with_stdio(false); 
         cin.tie(NULL);
         if(k==0)return 0;
         if(i>=n)return 1e9;

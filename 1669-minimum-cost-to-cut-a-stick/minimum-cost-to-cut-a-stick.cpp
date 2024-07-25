@@ -18,7 +18,7 @@ public:
         cuts.push_back(0);
         cuts.push_back(n);
         sort(cuts.begin(), cuts.end());
-        vector<vector<int>>dp(cuts.size()+1,vector<int>(cuts.size()+1,-1));
+        vector<vector<int>>dp(105,vector<int>(105,-1));
         int ans = dfs(cuts, 0, cuts.size() - 1,dp);
         // for(auto it:dp){
         //     for(auto i:it){

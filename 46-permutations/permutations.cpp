@@ -1,27 +1,20 @@
 class Solution {
 public:
-vector<vector<int>>ans;
-    void fun(vector<int>&arr, int n, vector<int>&vis, vector<int>&ds){
-        if(ds.size()==n){
-            ans.push_back(ds);
-            return ;
+    void fun(int i, int n, vector<vector<int>>&ans, vector<int>&nums){
+        if(i==n){
+            ans.push_back(nums);
+            return;
         }
-        for(int i = 0 ; i < n; i++){
-            if(vis[i]==0){
-                ds.push_back(arr[i]);
-                vis[i]=1;
-                fun(arr,n,vis,ds);
-                vis[i]=0;
-                ds.pop_back();
-            }
+        for(int ind = i; ind < n; ind++){
+            swap(nums[i],nums[ind]);
+            fun(i+1,n,ans,nums);
+            swap(nums[i],nums[ind]);
         }
-        
     }
     vector<vector<int>> permute(vector<int>& nums) {
-        vector<int>vis(nums.size(),0);
+        vector<vector<int>>ans;
         vector<int>ds;
-        fun(nums,nums.size(),vis,ds);
-        
+        fun(0,nums.size(),ans,nums);
         return ans;
     }
 };

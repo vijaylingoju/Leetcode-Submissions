@@ -7,9 +7,7 @@ public:
         for(int i = 1; i < s.size(); i++){//lee c=3
             if(ch==s[i]){
                 c+=1;
-                if(c>2){
-                    continue;
-                }else{
+                if(c<=2){
                     ans+=s[i];
                 }
             }else{
